@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data driven insights</title>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+        }
+        .tabs {
+            display: flex;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            justify-content: center;
+        }
+        .tab {
+            padding: 10px 15px;
+            cursor: pointer;
+            background-color: #eee;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-radius: 5px 5px 0 0;
+            color: #333;
+            font-weight: bold;
+            margin: 0 5px;
+        }
+        .tab.active {
+            background-color: #00bec7;
+            color: white;
+        }
+        .tab-content {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-top: none;
+            border-radius: 0 0 5px 5px;
+            margin-top: 15px;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .tab-content > div {
+            display: none;
+        }
+        .tab-content > div.active {
+            display: block;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Data driven insights</h1>
+
+    <ul class="tabs">
+        <li class="tab active" data-tab="tab1">Beyond Basic reporting</li>
+        <li class="tab" data-tab="tab2">Data-Driven Decisions</li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="tab1" class="active">
+            <p><b>LMS:</b> While LMS platforms offer fundamental quantitative data (scores, completion rates, time spent).<br><br>
+            <b>Gen AI:</b> Generative AI extends analysis by interpreting qualitative information to discern the reasons behind learner challenges, delivering contextual insights and tailored follow-up. Learning and Development professionals then utilise prompt engineering to transform these insights into practical learning strategies.<br><br>
+            <b>Example:</b><br>
+            <ul>
+                <li>Analyses qualitative data (open-ended responses, forum posts, feedback comments) to identify patterns and themes.</li>
+                <li>Provides contextual insights into why learners are struggling, not just that they are.</li>
+                <li>Generate natural language summaries of the common challenges.</li>
+                <li>Suggest specific learning resources or interventions based on the context of the errors.</li>
+                <li>Generate personalised follow-up questions.</li>
+            </ul>
+            <br>
+            <b>So what can you do?</b> Craft effective prompts to extract meaningful insights from Gen AI, and translate those insights into actionable strategies.</p>
+        </div>
+        <div id="tab2">
+            <p><b>LMS:</b> Learning Management Systems provide foundational data.<br><br>
+            <b>Gen AI:</b> Generative AI excels at uncovering complex trends and correlations within large datasets, revealing insights beyond human observation. It generates easily interpreted reports and even predicts future skill gaps. <br><br>
+            <b>Example 1:</b> An organisation's LMS shows high completion rates for a new software training, but Gen AI, analysing employee help desk tickets and forum posts, reveals a recurring pattern of confusion with a specific function. L&D uses this granular data to focus resources on targeted coaching and practice sessions rather than repeating the entire training.<br><br>
+            <b>Example 2:</b> Sales data revealed a significant drop in closed deals during virtual meetings, indicating a challenge for salespeople in this environment. Gen AI analysed communication within these virtual interactions, identifying recurring issues like ineffective objection handling and difficulty building rapport remotely. To address this, the Learning and Development Professional creates a Gen AI chatbot. This chatbot can be deployed to simulate realistic virtual sales scenarios. It provides personalised feedback on communication clarity, objection responses, and product knowledge, allowing salespeople to practice and refine their virtual selling skills based on data-driven insights.</p>
+        </div>
+    </div>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab');
+        const tabContents = document.querySelectorAll('.tab-content > div');
+
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const targetTab = document.getElementById(tab.dataset.tab);
+
+                tabs.forEach(t => t.classList.remove('active'));
+                tabContents.forEach(tc => tc.classList.remove('active'));
+
+                tab.classList.add('active');
+                targetTab.classList.add('active');
+            });
+        });
+    </script>
+
+</body>
+</html>
